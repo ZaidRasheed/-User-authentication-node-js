@@ -16,8 +16,7 @@
                     <h1><%= post.title %></h1>
                     <!-- <h2 class="subheading">Problems look mighty small from 150 miles up</h2> -->
                     <span class="meta">
-                        Posted by
-                        <%= post.first_name%>
+                        <p style="font-size: 2rem;margin-bottom: 5px;">By <%= post.first_name%></p>
                         <% const options = { year: 'numeric', month: 'long',day: 'numeric' }; %>
                         <%= post.publish_date.toLocaleDateString('en', options); %>
                     </span>

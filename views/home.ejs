@@ -27,7 +27,7 @@
                 <p class="post-meta">
                     Posted by
                     <%=post.first_name%>
-                    <%= post.publish_date.toLocaleDateString('en', options); %>
+                    on <%= post.publish_date.toLocaleDateString('en', options); %>
                 </p>
                 <% if(admin){%>
                 <form action="/delete/post" method="POST">
