@@ -1,6 +1,6 @@
 <%- include('partials/header') %>
 
-<header class="masthead" style="background-image: url('/assets/img/login.avif')">
+<header class="masthead" style="background-image: url('https://images.unsplash.com/photo-1484100356142-db6ab6244067?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80')">
   <div class="container position-relative px-4 px-lg-5">
     <div class="row gx-4 gx-lg-5 justify-content-center">
       <div class="col-md-10 col-lg-8 col-xl-7">
@@ -32,7 +32,7 @@
   </div>
   <% } %>
   <h1>Login</h1>
-  <form action="/login" method="post">
+  <form action="/login" method="post" autocomplete="on">
     <div id="email-error" class="alert alert-warning remove-display" role="alert">
       Invalid email
     </div>
@@ -45,7 +45,7 @@
     </div>
     <div class="form-group">
       <label for="password">Password</label>
-      <input type="password" class="form-control" name="password">
+      <input type="password" class="form-control" name="password" autocomplete="on">
     </div>
     <button id="login" type="submit" class="button darkButton">Login</button>
   </form>

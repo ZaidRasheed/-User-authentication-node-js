@@ -1,5 +1,12 @@
 <%- include("partials/header.ejs") %>
 
+<style>
+    @media only screen and (max-width: 600px) {
+        article{
+            width: 90% !important;
+        }
+    }
+</style>
 
 <header class="masthead" style="background-image: url('<%= post.img_URL %>')">
     <div class="container position-relative px-4 px-lg-5">
@@ -54,7 +61,7 @@
                 <% } %>
             </div>
         </li>
-        <hr/>
+        <hr />
         <% }) %>
     </ul>
 </div>
@@ -76,5 +83,6 @@
     </form>
 </div>
 <% } %>
+
 
 <%- include("partials/footer.ejs") %>

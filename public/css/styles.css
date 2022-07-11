@@ -1,7 +1,8 @@
-p{
+article p{
   text-indent: 40px;
   word-spacing: 3px;
 }
+
 .forms{
   font-family: Helvetica;  
   border: solid lightgray 1px;
@@ -218,5 +219,10 @@ li.profile-comments{
 @media only screen and (max-width: 700px) {
   .post,.comments,.add_comment{
     width: 90%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .forms{
+      width: 90% !important;
   }
 }
