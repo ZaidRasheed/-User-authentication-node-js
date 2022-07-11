@@ -1,0 +1,44 @@
+<%- include("partials/header.ejs") %>
+
+<header class="masthead" style="background-image: url('<%= post.img_URL %>')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="post-heading">
+                    <h1><%= post.title %></h1>
+                    <!-- <h2 class="subheading">Problems look mighty small from 150 miles up</h2> -->
+                    <span class="meta">
+                        Posted by
+                        <%= post.first_name%>
+                        <% const options = { year: 'numeric', month: 'long',day: 'numeric' }; %>
+                        <%= post.publish_date.toLocaleDateString('en', options); %>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="forms">
+    <h1>Edit</h1>
+    <form action="/edit" method="post">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" name="title" value="<%= post.title %>">
+        </div>
+        <div class="form-group">
+            <label for="url">Image URL</label>
+            <input type="url" class="form-control" name="url" value="<%= post.img_URL %>">
+        </div>
+        <div class="form-group">
+            <label for="body">Body</label>
+            <textarea name="body" class="form-control" cols="30" rows="10"><%= post.body %></textarea>
+        </div>
+        <input type="hidden" name="id" value="<%= post.id %> ">
+        <button type="submit" class="button darkButton">Post</button>
+    </form>
+
+</div>
+
+
+<%- include("partials/footer.ejs") %>

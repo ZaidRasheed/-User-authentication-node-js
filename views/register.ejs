@@ -1,0 +1,59 @@
+<%- include('partials/header') %>
+
+<header class="masthead" style="background-image: url('/assets/img/register.avif')">
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="site-heading">
+          <h1>Register</h1>
+          <span class="subheading">Start Contributing to the Blog!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+
+
+
+<div class="forms">
+  <form action="/register" method="POST">
+    <div id="firstNameError" class="alert alert-warning remove-display" role="alert">
+      First name cant be empty
+    </div>
+    <div id="lastNameError" class="alert alert-warning remove-display" role="alert">
+      Last name cant be empty
+    </div>
+    <div id="email-error" class="alert alert-warning remove-display" role="alert">
+      Invalid email
+    </div>
+    <div id="password-error" class="alert alert-warning remove-display" role="alert">
+      Invalid password
+    </div>
+    <% if(userfound){ %>
+    <div id="user-error" class="alert alert-danger found-error" role="alert">
+      A user name with this email already exists
+    </div>
+    <% } %>
+    <h1>Register</h1>
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input type="text" class="form-control" name="firstName">
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input type="text" class="form-control" name="lastName">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" name="email">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" name="password">
+    </div>
+    <button id="register" type="submit" class="button darkButton">Register</button>
+  </form>
+</div>
+<%- include('partials/footer') %>

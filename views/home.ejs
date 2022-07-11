@@ -1,0 +1,56 @@
+<%- include('partials/header') %>
+
+<header class="masthead" style="background-image: url('/assets/img/home-bg.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>Clean Blog</h1>
+                    <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <% posts.forEach((post,index)=>{ %>
+            <div class="post-preview">
+                <a href="/post?id=<%= post.id %> ">
+                    <h2 class="post-title"><%= post.title %></h2>
+                    <h3 class="post-subtitle"><%= post.body.substring(0, 70)+"...";%></h3>
+                </a>
+                <% const options = { year: 'numeric', month: 'long',day: 'numeric' }; %>
+                <p class="post-meta">
+                    Posted by
+                    <%=post.first_name%>
+                    <%= post.publish_date.toLocaleDateString('en', options); %>
+                </p>
+                <% if(admin){%>
+                <form action="/delete/post" method="POST">
+                    <input type="hidden" name="postId" value="<%= post.id%>">
+                    <Button type="submit" class="redButton button">Delete</Button>
+                </form>
+                <% } %>
+            </div>
+            <!-- Divider-->
+            <% if(index<posts.length-1){ %>
+            <hr class="my-4" />
+            <% } %>
+            <% }) %>
+        </div>
+    </div>
+</div>
+<div class="jumbotron text-center">
+    <div class="container">
+        <% if(admin){ %>
+        <hr />
+        <a href="/submit/post" role="button"><button class="blueButton">Submit a post</button></a>
+        <% } %>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

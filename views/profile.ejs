@@ -1,0 +1,41 @@
+<%- include('partials/header') %>
+<header class="masthead" style="background-image: url('/assets/img/login.avif')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1><h1>Hello <%= user.first_name %></h1></h1>
+                    <span class="subheading">Welcome Back!</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="jumbotron text-center">
+    <div class="container">
+        <hr />
+    </div>
+</div>
+
+<div class="col-lg-8 col-md-10 mx-auto comment">
+    <h1>My comments :</h1>
+    <ul >
+        <% comments.forEach(comment=>{%>
+        <li class="profile-comments">
+            <div class="commentText">
+                <h3>"<%= comment.body %>" on <a href="/post?id=<%= comment.post_id %> "><%= comment.title.substring(0, 20)+"..." %></a></h3>
+                <% const options = { year: 'numeric', month: 'long',day: 'numeric' }; %>
+                <span class="date sub-text">On <%= comment.publish_date.toLocaleDateString('en', options); %> </span>
+            </div>
+            <form action="/delete/comment" method="post">
+                <input type="hidden" name="commentId" value="<%= comment.id %> ">
+                <input type="hidden" name="userId" value="<%= comment.user_id %> ">
+                <input type="hidden" name="source" value="profile">
+                <button id="delete" type="submit" class="redButton button">Delete</button>
+            </form>
+        </li>
+        <% }) %>
+    </ul>
+</div>
+
+<%- include('partials/footer') %>

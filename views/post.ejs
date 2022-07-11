@@ -1,0 +1,80 @@
+<%- include("partials/header.ejs") %>
+
+
+<header class="masthead" style="background-image: url('<%= post.img_URL %>')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="post-heading">
+                    <h1><%= post.title %></h1>
+                    <!-- <h2 class="subheading">Problems look mighty small from 150 miles up</h2> -->
+                    <span class="meta">
+                        Posted by
+                        <%= post.first_name%>
+                        <% const options = { year: 'numeric', month: 'long',day: 'numeric' }; %>
+                        <%= post.publish_date.toLocaleDateString('en', options); %>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<article style="width: 75%; margin: 0 auto;" class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div style="width: 100%;" class="col-md-10 col-lg-8 col-xl-7">
+                <% let x= post.body.split("\n")%>
+                <% x=x.filter(e => e !== '\r'); %>
+                <% x.forEach(paragraph=>{ %>
+                <p><%= paragraph %> </p>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</article>
+
+<div class="col-lg-8 col-md-10 mx-auto comment">
+    <h1 class="commentList">Comments</h1>
+    <ul class="commentList">
+        <% comments.forEach(comment=>{%>
+        <li>
+            <div class="commentText">
+                <h3><%= comment.body %></h3>
+                <span class="date sub-text">By <%= comment.first_name%> <%= comment.last_name %></span>
+                <% const options = { year: 'numeric', month: 'long',day: 'numeric' }; %>
+                <span class="date sub-text">On <%= comment.publish_date.toLocaleDateString('en', options); %> </span>
+                <% if(admin || userId==comment.user_id){ %>
+                <form action="/delete/comment" method="post">
+                    <input type="hidden" name="commentId" value="<%= comment.id %> ">
+                    <input type="hidden" name="userId" value="<%= comment.user_id %> ">
+                    <input type="hidden" name="source" value="post?id=<%= post.id %>">
+                    <button type="submit" class="redButton button">Delete</button>
+                </form>
+                <% } %>
+            </div>
+        </li>
+        <hr/>
+        <% }) %>
+    </ul>
+</div>
+<div class="add_comment">
+    <% if (admin){ %>
+    <div>
+        <a href="/edit?id=<%= post.id %>"><button class="blueButton">Edit post</button></a>
+    </div>
+    <% } %>
+</div>
+
+<% if(loggedIn){ %>
+<div class="add_comment">
+    <form action="/submit/comment" method="POST">
+        <label for="comment">Add a comment</label>
+        <input name="comment" type="text" maxlength="70" minlength="1">
+        <input type="hidden" name="postId" value="<%= post.id %>">
+        <button id="delete" class="button darkButton" type="submit">Post</button>
+    </form>
+</div>
+<% } %>
+
+<%- include("partials/footer.ejs") %>

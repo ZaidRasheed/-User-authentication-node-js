@@ -1,0 +1,58 @@
+<%- include('partials/header') %>
+
+<header class="masthead" style="background-image: url('/assets/img/login.avif')">
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="site-heading">
+          <h1>Log In</h1>
+          <span class="subheading">Welcome Back!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+
+
+<div class="forms">
+  <% if(error){ %>
+  <div class="found-error">
+    <div id="user-error" class="alert alert-danger" role="alert">
+      A user name with this email Doesnt exist, register instead?
+    </div>
+    <a class="button darkButton" href="/register" role="button">Register</a>
+  </div>
+  <% } else if(wrongPassword){%>
+  <div class="found-error">
+    <div id="user-error" class="alert alert-danger" role="alert">
+      Wrong Password Please try again!
+    </div>
+  </div>
+  <% } %>
+  <h1>Login</h1>
+  <form action="/login" method="post">
+    <div id="email-error" class="alert alert-warning remove-display" role="alert">
+      Invalid email
+    </div>
+    <div id="password-error" class="alert alert-warning remove-display" role="alert">
+      Invalid password
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" name="email">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" name="password">
+    </div>
+    <button id="login" type="submit" class="button darkButton">Login</button>
+  </form>
+
+</div>
+
+
+
+
+<%- include('partials/footer') %>

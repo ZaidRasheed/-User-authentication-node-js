@@ -1,0 +1,222 @@
+p{
+  text-indent: 40px;
+  word-spacing: 3px;
+}
+.forms{
+  font-family: Helvetica;  
+  border: solid lightgray 1px;
+  width: 65%;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 50px;
+}
+.forms>form{
+  margin: 20px auto;
+}
+.form-control{
+  margin: 15px 0;
+}
+.form-group>input{
+  width: 100%;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+.navbar-brand{
+  font-size: 2rem !important;
+  transition: all 0.5s;
+  border-bottom: 2px solid transparent;
+}
+.navbar-brand:hover{
+  border-color: black;
+}
+
+.found-error{
+  margin-bottom: 20px;
+}
+.remove-display{
+  display: none;
+}
+.error{
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+.error>h1{
+  font-size: 4rem;
+}
+.error>h3{
+  font-size: 4rem;
+}
+.submit{
+  width: 50%;
+  margin: 0 auto;
+}
+.submit label{
+  margin-right: 100%;
+  font-size: 3rem;
+  font-weight: 500;
+}
+.input{
+  padding: 10px 5px;
+  line-height: 30px;
+  display: block;
+  width: 100%;
+  margin: 15px auto;
+}
+
+.button{
+  font-family: Helvetica;
+  text-decoration: none;
+  border-radius: 8px;
+  padding: 5px;
+  font-size: 1.1rem;
+  transition: all .4s ease-in-out;
+}
+.lightButton{
+  background-color: white;
+  color: #000;
+  border-style: solid;
+  border-width:1px;
+}
+.lightButton:hover{
+  background-color: #000;
+  color: #fff;
+}
+.darkButton{
+  margin-top: 10px;
+  background-color: #000;
+  color: white;
+  border-style: solid;
+  border-width:1px;
+  padding: 5px 15px;
+  font-size: 1.5rem !important;
+}
+.darkButton:hover{
+  background-color: white;
+  color: #000;
+}
+.blueButton{
+  font-family: Helvetica;
+  text-decoration: none;
+  border-radius: 8px;
+  padding: 5px;
+  font-size: 1.1rem;
+  transition: all .4s ease-in-out;
+  background-color: #0085A1;
+  color: white;
+  border-style: solid 1px ;
+  border-color: #0085A1;
+  padding: 5px 15px;
+  font-size: 1.5rem !important;
+}
+.blueButton:hover{
+  background-color: white;
+  color: #0085A1;
+}
+a>button.blueButton{
+  margin-bottom: 20px;
+}
+.redButton{
+  background-color: red;
+  color: white;
+  border-style: none;
+  border-radius: 10px;
+}
+.redButton:hover{
+  background-color: white;
+  color: red;
+}
+.add_comment{
+  font-family: Helvetica;
+  width: 60%;
+  margin: 50px auto;
+}
+.add_comment label{
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+.add_comment input{
+  line-height: 30px;
+  display: block;
+  width: 70%;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  border:solid 1px lightgray;
+  border-radius: 10px;
+}
+.comment{
+  margin: 50px auto;
+}
+.comment>h1{
+  color: gray;
+  opacity: 0.9;
+  margin-bottom: 40px;
+  width: 90%;
+  margin: 0 auto;
+}
+h1.commentList{
+  color: gray;
+  opacity: 0.5;
+  margin-bottom: 40px;
+}
+.commentList {
+  width: 80%;
+  margin: 20px auto;
+  padding:0;
+  list-style:none;
+  max-height:300px;
+  overflow:auto;
+}
+.profile-comments{
+  width: 80%;
+  margin: 30px auto;
+  padding:0;
+  list-style:none;
+  max-height:600px;
+  overflow:auto;
+}
+li.profile-comments{
+  padding-bottom: 15px;
+  border-bottom: solid 1px lightslategray;
+}
+.profile-comments a{
+  color: gray;
+}
+.commentList li {
+  margin:0;
+  margin-top:10px;
+}
+.commentList li > div {
+  display:table-cell;
+}
+.commenterImage {
+  width:30px;
+  margin-right:5px;
+  height:100%;
+  float:left;
+}
+.commenterImage img {
+  width:100%;
+  border-radius:50%;
+}
+.commentText p {
+  margin:0;
+}
+.sub-text {
+  color:#aaa;
+  font-family:verdana;
+  font-size:11px;
+}
+@media only screen and (max-width: 1000px) {
+  .post,.comments,.add_comment{
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .post,.comments,.add_comment{
+    width: 90%;
+  }
+}
